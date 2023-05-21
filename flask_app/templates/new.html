@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Page</title>
+</head>
+<body>
+<h1>Create Page</h1>
+    <!-- You can change all of this once you get the trainer part figured out i just wanted to have a starting point -WCSW -->
+
+    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/dashboard"> <b>Dashboard</b> </a></li>
+    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/user/logout"> <b>Logout</b> </a></li>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <p>{{message}}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <form action="/trainers/new/process" method="post">
+        <div>
+            <label for="title">?????</label>
+            <p><input type="text" name="title" id="title"></p>
+        </div>
+        <div>
+            <label for="posting">?????</label>
+            <p><textarea name="posting" id="posting"></textarea></p>
+        </div>
+        <div>
+            <p><label for="photo">!!Upload Image!!</label></p>
+            <p> <input type="file" name="photo" id="photo" value="submit" accept=".jpg">
+            </p>
+        </div>
+        <button type="submit">submit</button>
+    </form>
+</body>
+</html>

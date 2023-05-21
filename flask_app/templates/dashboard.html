@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+
+
+</head>
+<!-- You can change all of this once you get the trainer part figured out i just wanted to have a starting point -WCSW -->
+<body>
+ <h1>Dashboard</h1> 
+
+  <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/user/logout">
+    <b>Logout</b> </a>
+<br>
+    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/trainer/new"><b>Create Page</b>
+    </a>
+<br>
+    Can't view "Edit" page until we have trainers unless you just pull the HTML to design it -WCSW
+    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/trainers/edit/{{trainer.id}}"><b> Edit page </b>
+    </a>
+<br>
+    Can't see the "View" page until we have trainers unless you just pull the HTML to design it -WCSW
+    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/trainers/{{trainer.id}}"><b>View Page</b>
+    </a>
+</li>
+</li>
+
+{% for trainer in trainers %} 
+
+
+            <p>created by: {{trainer.creator.first_name}}</p><span class="w3-opacity">{{trainer.updated_at
+                .strftime('%B %d,%Y')}}</span>
+
+            {% if session['user_id'] == post.creator.id %}
+            <a href="/trainers/edit/{{trainer.id}}" class="Link">Edit</a>
+            <a href="/trainers/delete/{{trainer.id}}" class="Link">Delete</a>
+            {% endif %}
+
+{% endfor %}
+</body>
+</html>

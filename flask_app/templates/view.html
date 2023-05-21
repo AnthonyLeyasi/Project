@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Page</title>
+</head>
+
+<!-- Can't see the View this page until we have trainers unless you just pull the HTML to design it -WCSW -->
+<!-- You can change all of this once you get the trainer part figured out i just wanted to have a starting point -WCSW -->
+
+<body>
+    <h1>View Page</h1>
+    
+    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/dashboard"> <b>Dashboard</b> </a></li>
+    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/user/logout"> <b>Logout</b> </a></li>
+
+    <div class="col-md-8 col-lg-7 d-flex align-items-center">
+        <div class="container-fluid ">
+            <h2>{{}}</h2>
+            <label for="Posting"></label>
+            <textarea class="form-control" rows="5" id="Posting"
+                name="text">{{}}</textarea>
+            <p>created: {{trainer.updated_at
+                .strftime('%B %d, %Y')}}</p>
+</body>
+</html>
