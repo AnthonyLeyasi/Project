@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Trainer Website</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+</head>
+<body>
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+   <div class="container">
+            <a class="navbar-brand" href="#">Workout Trainer</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="/user/logout"><b>Logout</b></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/trainer/new"><b>Create Page</b></a>
+                      </li>
+
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+              <div class="container mt-4">
+                <h1>Welcome to Workout Trainer!</h1>
+                <p class="lead">Find the perfect trainer or become one yourself.</p>
+                
+                <h2>Find a Trainer</h2>
+                <p>Discover experienced and certified fitness trainers who can guide you on your fitness journey. Whether you're
+                  a beginner or an advanced athlete, our trainers offer personalized workout programs tailored to your goals
+                  and preferences. Browse through our diverse selection of trainers, read their profiles, and choose the one
+                  that suits you best.</p>
+                  
+                  <h2>Become a Trainer</h2>
+                  <p>Are you a fitness enthusiast with a passion for helping others achieve their fitness goals? Join our
+                    community of trainers and share your expertise with clients. Create your trainer profile, showcase your
+                    qualifications and specialties, and connect with individuals seeking professional guidance. Empower others
+                    to transform their lives through fitness.</p>
+                    
+                    <h2>Start Your Fitness Journey Today!</h2>
+                    <p>Whether you're looking to find a trainer or become one, Workout Trainer is your go-to platform. Take the
+                      first step towards a healthier and fitter lifestyle. Get started now!</p>
+                    </div>
+                    {% for trainer in trainers %} 
+                    {{trainer.first_name}}
+                    {{trainer.last_name}}
+                    {{trainer.city}}
+                    {{trainer.gym}}
+                    {{trainer.description}}
+                    {{trainer.updated_at}}
+                    {{trainer.created_at}}
+                    {% if session['user_id'] == trainer.creator.id %}
+                    <a href="/trainers/edit/{{trainer.id}}" class="Link">Edit</a>
+                    <a href="/trainers/delete/{{trainer.id}}" class="Link">Delete</a>
+                    {% endif %}
+                    
+                    <hr>
+                    {% endfor %}
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js%22%3E</script>
+</body>
+</html>
